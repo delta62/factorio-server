@@ -11,7 +11,7 @@ source=(
 md5sums=(
     "f9b27654c3c47b34de3a8eb62f0b20df"
     "9bf8114e5e3c1c27842440d578ef032f"
-    "55ff52dfc62c471f7efe42aa40ed07c1"
+    "34617d9456332f7fd238880d356cdeb5"
 )
 arch=("x86_64")
 depends=("glibc")
