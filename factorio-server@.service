@@ -1,0 +1,49 @@
+[Unit]
+Description="Headless Factorio server for %i"
+
+[Install]
+WantedBy=network-online.target
+
+[Service]
+Type=exec
+Restart=on-failure
+
+ExecStart=/opt/factorio-server/bin/x64/factorio \
+    --start-server "/var/lib/factorio-server/%i.zip" \
+    --server-settings "/etc/factorio-server/%i-server-settings.json" \
+    --use-server-whitelist \
+    --server-whitelist "/etc/factorio-server/%i-whitelist.json" \
+    --server-adminlist "/etc/factorio-server/%i-adminlist.json" \
+    --console-log "/var/log/factorio-server/%i.log"
+
+User=factorio
+Group=factorio
+WorkingDirectory=/opt/factorio-server
+
+ProtectSystem=strict
+KeyringMode=private
+LockPersonality=yes
+MemoryDenyWriteExecute=yes
+NoNewPrivileges=yes
+PrivateDevices=yes
+PrivateTmp=yes
+ProtectClock=yes
+ProtectControlGroups=yes
+ProtectHome=yes
+ProtectHostname=yes
+ProtectKernelLogs=yes
+ProtectKernelModules=yes
+ProtectKernelTunables=yes
+ProtectProc=invisible
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+RestrictNamespaces=~mnt
+RestrictRealtime=yes
+RestrictSUIDSGID=yes
+SystemCallFilter=~memfd_create
+
+ReadOnlyPaths=/
+ReadWritePaths=/opt/factorio-server /var/lib/factorio-server /var/log/factorio-server
+InaccessiblePaths=-/boot -/lost+found -/etc/default -/etc/shadow -/etc/sudoers -/etc/sysctl.conf -/etc/sysctl.d -/var/backups -/var/mail -/var/spool -/var/local -/var/opt -/mnt -/media -/cdrom -/etc/ssh -/etc/samba
+StateDirectory=factorio-server
+ConfigurationDirectory=factorio-server
+LogDirectory=factorio-server

@@ -1,0 +1,24 @@
+post_install() {
+    cat << EOF
+Installation complete!
+
+To start a server, you'll need to follow a few steps:
+* create a new world using /opt/factorio-server/bin/factorio --create
+  <world_name>
+* place this world into /var/lib/factorio-server
+* create a server configuration file for this world in /etc/factorio-server
+  named <world_name>-server-settings.json. For a starting point, copy
+  /opt/factorio-server/data/server-settings.example.json
+* create a player whitelist in /etc/factorio-server named
+  <world_name>-whitelist.json. You can copy
+  /opt/factorio-server/data/server-whitelist.example.json
+* add players who you want to allow on your server to whitelist file
+* start factorio-server@<world_name>.service
+* create an admin list by creating
+  /etc/factorio-server/<world_name>-adminlist.json, and populate it with the
+  server admins
+
+To host a public server, additional setup including port forwarding is required.
+See https://wiki.factorio.com/Multiplayer for more information.
+EOF
+}
