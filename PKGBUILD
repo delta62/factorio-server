@@ -1,15 +1,15 @@
 pkgname=("factorio-server")
-pkgver="1.1.91"
+pkgver="2.0.28"
 pkgrel="1"
 pkgdesc="Headless Factorio multiplayer server"
 url="https://www.factorio.com"
 source=(
-    "$pkgname.tar.xz::https://factorio.com/get-download/stable/headless/linux64"
+    "$pkgname.tar.xz::https://factorio.com/get-download/$pkgver/headless/linux64"
     "factorio.conf"
     "$pkgname@.service"
 )
 md5sums=(
-    "f9b27654c3c47b34de3a8eb62f0b20df"
+    "ec0bec9777ceec2687453944cd29b873"
     "9bf8114e5e3c1c27842440d578ef032f"
     "34617d9456332f7fd238880d356cdeb5"
 )
